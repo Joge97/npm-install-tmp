@@ -1,0 +1,13 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "files": [
+        "./src/index.ts"
+    ]
+}
