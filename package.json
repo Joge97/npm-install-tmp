@@ -1,25 +1,29 @@
 {
-  "name": "npm-install-tmp",
-  "version": "0.0.0",
-  "description": "Temporary installs a npm package and automatically cleans up the resources afterwards.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Joge97/npm-install-tmp.git"
-  },
-  "keywords": [
-    "npm",
-    "install",
-    "tmp",
-    "temporary"
-  ],
-  "author": "Joge",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Joge97/npm-install-tmp/issues"
-  },
-  "homepage": "https://github.com/Joge97/npm-install-tmp#readme"
+    "name": "npm-install-tmp",
+    "version": "0.0.0",
+    "description": "Temporary installs a npm package and automatically cleans up the resources afterwards.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/Joge97/npm-install-tmp.git"
+    },
+    "keywords": [
+        "npm",
+        "install",
+        "tmp",
+        "temporary"
+    ],
+    "author": "Joge",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Joge97/npm-install-tmp/issues"
+    },
+    "homepage": "https://github.com/Joge97/npm-install-tmp#readme",
+    "devDependencies": {
+        "tslint": "^5.2.0",
+        "typescript": "^2.3.2"
+    }
 }
