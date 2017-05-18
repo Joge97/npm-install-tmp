@@ -2,8 +2,6 @@ import * as npm from 'npm';
 import * as tmp from 'tmp';
 
 
-// TODO remove console output
-
 tmp.setGracefulCleanup();
 
 function createTemporaryDirectory(): Promise<string> {
@@ -17,7 +15,7 @@ function createTemporaryDirectory(): Promise<string> {
 
 function install(directoryPath: string, moduleName: string): Promise<string[][]> {
     return new Promise((resolve, reject) => {
-        npm.load({loglevel: 'silent'}, () => {
+        npm.load({loglevel: 'silent', progress: false}, () => {
             npm.commands.install(directoryPath, [moduleName], (err, modules) => {
                 if(err) return reject(err);
                 resolve(modules);
