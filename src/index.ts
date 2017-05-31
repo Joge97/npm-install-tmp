@@ -15,8 +15,7 @@ function createTemporaryDirectory(): Promise<string> {
 
 function install(directoryPath: string, moduleName: string): Promise<string[][]> {
     return new Promise((resolve, reject) => {
-        // TODO upgrade to npm 5 for hiding all output
-        npm.load({loglevel: 'silent', progress: false, depth: 0}, () => {
+        npm.load({loglevel: 'silent', progress: false}, () => {
             npm.commands.install(directoryPath, [moduleName], (err, modules) => {
                 if(err) return reject(err);
                 resolve(modules);
