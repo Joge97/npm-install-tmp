@@ -5,12 +5,22 @@ import * as tmp from 'tmp';
 tmp.setGracefulCleanup();
 
 function createTemporaryDirectory(): Promise<string> {
-    return new Promise((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
         tmp.dir({unsafeCleanup: true}, (err, directoryPath) => {
             if(err) return reject(err);
             resolve(directoryPath);
         });
     });
+}
+
+let temporaryDirectory;
+
+async function getTemporaryDirectory(): Promise<string> {
+    if(!temporaryDirectory) {
+        temporaryDirectory = await createTemporaryDirectory();
+    }
+
+    return temporaryDirectory;
 }
 
 function install(directoryPath: string, moduleName: string): Promise<string[][]> {
@@ -34,8 +44,8 @@ function getModulePath(modules: string[][], moduleName: string): Promise<string>
     return Promise.reject(new Error('Could not resolve module path!'));
 }
 
-export function use(moduleName: string): Promise<any> {
-    return createTemporaryDirectory()
+export function use(moduleName: string, useSameDirectory = false): Promise<any> {
+    return (useSameDirectory ? getTemporaryDirectory() : createTemporaryDirectory())
         .then(directoryPath => install(directoryPath, moduleName))
         .then(modules => getModulePath(modules, moduleName))
         .then(modulePath => require(modulePath));
