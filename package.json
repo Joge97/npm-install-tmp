@@ -1,6 +1,6 @@
 {
     "name": "npm-install-tmp",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Temporary installs a npm package and automatically cleans up the resources afterwards.",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
